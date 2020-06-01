@@ -1,0 +1,17 @@
+wyznaczenie najbliższych sąsiadów metodą drzew decyzyjnych grzyby
+wyznaczenie najbliższych sąsiadów metodą klasyfikatora bayesa grzyby
+stworzenie lokalnego klasyfikatora metodą drzew decyzyjnych grzyby
+stworzenie lokalnego klasyfikatora metodą klasyfikatora bayesa grzyby
+stworzenie globalnego klasyfikatora metodą drzew decyzyjnych grzyby
+stworzenie globalnego klasyfikatora metodą klasyfikatora bayesa grzyby
+
+wyznaczenie najbliższych sąsiadów metodą drzew decyzyjnych ludzie
+wyznaczenie najbliższych sąsiadów metodą klasyfikatora bayesa ludzie
+stworzenie lokalnego klasyfikatora metodą drzew decyzyjnych ludzie
+stworzenie lokalnego klasyfikatora metodą klasyfikatora bayesa ludzie
+stworzenie globalnego klasyfikatora metodą drzew decyzyjnych ludzie
+stworzenie globalnego klasyfikatora metodą klasyfikatora bayesa ludzie
+
+zaimplementowanie k krotnej walidacji krzyżowej
+
+zaimplementowanie oceny jakości modelu

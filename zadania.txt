@@ -1,17 +1,5 @@
-wyznaczenie najbliższych sąsiadów metodą drzew decyzyjnych grzyby
-wyznaczenie najbliższych sąsiadów metodą klasyfikatora bayesa grzyby
-stworzenie lokalnego klasyfikatora metodą drzew decyzyjnych grzyby
-stworzenie lokalnego klasyfikatora metodą klasyfikatora bayesa grzyby
-stworzenie globalnego klasyfikatora metodą drzew decyzyjnych grzyby
-stworzenie globalnego klasyfikatora metodą klasyfikatora bayesa grzyby
-
-wyznaczenie najbliższych sąsiadów metodą drzew decyzyjnych ludzie
-wyznaczenie najbliższych sąsiadów metodą klasyfikatora bayesa ludzie
-stworzenie lokalnego klasyfikatora metodą drzew decyzyjnych ludzie
-stworzenie lokalnego klasyfikatora metodą klasyfikatora bayesa ludzie
-stworzenie globalnego klasyfikatora metodą drzew decyzyjnych ludzie
-stworzenie globalnego klasyfikatora metodą klasyfikatora bayesa ludzie
-
-zaimplementowanie k krotnej walidacji krzyżowej
-
-zaimplementowanie oceny jakości modelu
+- Stworzenie metody znajdowania najbliższych sąsiadów w zbiorze
+- wykorzystanie tej metody do lokalnej klasyfikacji dla obydwu algorytmów
+- globalną klasyfikacja (to jest właściwie zrobione na repo w takiej wersji alfa)
+- walidacja krzyżowa (to implementują chyba pakiety w r)
+- ocena jakości modelu (jeśli chodzi o podstawie miary jak True pos, false pos itp to jest to zaimplementowane w r

@@ -1,5 +1,5 @@
 getData<-function(){
-  mushrooms <- read.csv("mushroom.csv", stringsAsFactors = TRUE);
+  mushrooms <- read.csv("mushrooms.csv", stringsAsFactors = TRUE);
 }
 
 

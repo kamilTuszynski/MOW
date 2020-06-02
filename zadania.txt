@@ -1,0 +1,5 @@
+- Stworzenie metody znajdowania najbliższych sąsiadów w zbiorze
+- wykorzystanie tej metody do lokalnej klasyfikacji dla obydwu algorytmów
+- globalną klasyfikacja (to jest właściwie zrobione na repo w takiej wersji alfa)
+- walidacja krzyżowa (to implementują chyba pakiety w r)
+- ocena jakości modelu (jeśli chodzi o podstawie miary jak True pos, false pos itp to jest to zaimplementowane w r

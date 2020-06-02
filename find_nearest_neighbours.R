@@ -16,8 +16,8 @@ getNearestNeighbours<-function(data, example, k){
 }
 
 calculateDistanceDiscrete<-function(a, b){
-  distMatrix = ifelse(a == b, 0, 1)
-  sum(distMatrix)
+  distVector = ifelse(a == b, 0, 1)
+  sum(distVector)
 }
 
 data = getData()

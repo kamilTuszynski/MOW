@@ -1,5 +1,5 @@
 getData<-function(){
-  mushrooms <- read.csv("adult.csv");
+  mushrooms <- read.csv("mushrooms.csv");
 }
 
 
@@ -58,21 +58,15 @@ calculateDistanceNumeric <- function(a, b, max, min){
 }
 
 
-localClassification<-function(example, trainData){
+localClassification<-function(example, trainData, k){
   
-  nn = getNearestNeighbours(trainData, example, 2000)
+  nn = getNearestNeighbours(trainData, example, k)
   
-  
-  penalty.matrix <- matrix(c(0,1,10,0), byrow=TRUE, nrow=2)
   # building the classification tree with rpart
   tree <- rpart(class~.,
                 data=nn,
-                parms = list(loss = penalty.matrix),
+                #parms = list(loss = penalty.matrix),
                 method = "class")
-  
-  cp.optim <- tree$cptable[which.min(tree$cptable[,"xerror"]),"CP"]
-  # tree prunning using the best complexity parameter. For more in
-  tree <- prune(tree, cp=cp.optim)
   
   
   

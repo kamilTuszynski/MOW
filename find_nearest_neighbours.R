@@ -4,10 +4,10 @@ getData<-function(){
 
 
 
-getNearestNeighbours<-function(data, example, k){
+getNearestNeighbours<-function(data, example, k, classIndex = 1){
   # first column is class
-  dataWithoutClass = data[,-1]
-  exampleWithoutClass = example[-1]
+  dataWithoutClass = data[,-classIndex]
+  exampleWithoutClass = example[-classIndex]
   
   maxVector = colMax(dataWithoutClass)
   minVector = colMin(dataWithoutClass)
@@ -58,9 +58,9 @@ calculateDistanceNumeric <- function(a, b, max, min){
 }
 
 
-localClassification<-function(example, trainData, k, algorithm = "DecisionTree"){
+localClassification<-function(example, trainData, k, classIndex = 1, algorithm = "DecisionTree"){
   
-  nn = getNearestNeighbours(trainData, example, k)
+  nn = getNearestNeighbours(trainData, example, k, classIndex)
   
   if(algorithm == "DecisionTree")
   {
@@ -73,7 +73,7 @@ localClassification<-function(example, trainData, k, algorithm = "DecisionTree")
   }
   else if(algorithm == "NaiveBayes")
   {
-    nb.Model         <- naiveBayes( class~., data = nn )
+    nb.Model         <- naiveBayes( yearlyincome~., data = nn )
     nb.Prediction    <- predict( nb.Model, newdata = example, type = "raw" )
   }
 }

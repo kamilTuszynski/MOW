@@ -58,19 +58,24 @@ calculateDistanceNumeric <- function(a, b, max, min){
 }
 
 
-localClassification<-function(example, trainData, k){
+localClassification<-function(example, trainData, k, algorithm = "DecisionTree"){
   
   nn = getNearestNeighbours(trainData, example, k)
   
-  # building the classification tree with rpart
-  tree <- rpart(class~.,
-                data=nn,
-                #parms = list(loss = penalty.matrix),
-                method = "class")
-  
-  
-  
-  predict(object=tree,example,type="class")
+  if(algorithm == "DecisionTree")
+  {
+    # building the classification tree with rpart
+    tree <- rpart(class~.,
+                  data=nn,
+                  #parms = list(loss = penalty.matrix),
+                  method = "class")
+    predict(object=tree,example,type="class")
+  }
+  else if(algorithm == "NaiveBayes")
+  {
+    nb.Model         <- naiveBayes( class~., data = nn )
+    nb.Prediction    <- predict( nb.Model, newdata = example, type = "raw" )
+  }
 }
 
 

@@ -1,5 +1,5 @@
 getData<-function(){
-  mushrooms <- read.csv("mushrooms.csv", stringsAsFactors = TRUE);
+  mushrooms <- read.csv("adult.csv");
 }
 
 
@@ -8,9 +8,14 @@ getNearestNeighbours<-function(data, example, k){
   # first column is class
   dataWithoutClass = data[,-1]
   exampleWithoutClass = example[-1]
-  getMaxValuesInColumns(dataWithoutClass)
   
-  distVector = apply(dataWithoutClass,1,calculateDistanceDiscrete, b=exampleWithoutClass)
+  maxVector = colMax(dataWithoutClass)
+  minVector = colMin(dataWithoutClass)
+  
+  #getMaxValuesInColumns(dataWithoutClass)
+  #View(maxVector)
+  
+  distVector = apply(dataWithoutClass,1,calculateDistanceForAll, b=exampleWithoutClass, max = maxVector, min = minVector)
   sorted = sort(distVector, decreasing = FALSE, index.return = TRUE)
   indexes = sorted$ix
   indexes = indexes[1:k]
@@ -19,10 +24,47 @@ getNearestNeighbours<-function(data, example, k){
 
 maxVector<-NULL
 
+colMax <- function(data) sapply(data, getMaxIfNumeric)
+
+colMin <- function(data) sapply(data, getMinIfNumeric)
+
+getMaxIfNumeric <- function(data){
+  if(is.numeric(data)){
+    max(data, na.rm = TRUE)
+  }
+  else{0}
+}
+
+getMinIfNumeric <- function(data){
+  if(is.numeric(data)){
+    min(data, na.rm = TRUE)
+  }
+  else{0}
+}
+
+calculateDistanceForAll<-function(a, b, max, min){
+  distVector = ifelse(sapply(a,is.numeric), mapply(calculateDistanceNumeric, a, b, max, min), ifelse(a == b, 0, 1))
+  
+  distVector
+  sum(distVector)
+}
+
+
+calculateDistanceNumeric <- function(a, b, max, min){
+  if(is.numeric(a)){
+    # think about calculating this
+    abs(a-b)/(max -min) * 3
+  }
+  else{
+    0
+  }
+}
+
 calculateDistanceDiscrete<-function(a, b){
   distVector = ifelse(a == b, 0, 1)
   sum(distVector)
 }
+
 
 getMaxValuesInColumns<-function(dataFrame){
   maxVector <<- integer(length(head(dataFrame,1)))
@@ -90,6 +132,6 @@ calculateDistance<-function(a, b){
 }
 
 data = getData()
-example = data[1:1,-1]
+example = data[1:1,]
 data = data[-1,]
 getNearestNeighbours(data, example, 2000)

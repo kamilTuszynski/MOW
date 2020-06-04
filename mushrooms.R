@@ -1,10 +1,12 @@
+rm(list = ls())
+
 library(rpart,quietly = TRUE)
 library(caret,quietly = TRUE)
 library(rpart.plot,quietly = TRUE)
 
 
 # reading the dataset as a dataframe
-mushrooms <- read.csv("mushrooms.csv");
+mushrooms <- read.csv("adult.csv");
 # structure of the data
 str(mushrooms)
 # number of rows with missing values
@@ -50,19 +52,19 @@ mushrooms_test <- mushrooms[-train,]
 # panalty matrix: will set a penalty which is 10 times bigger for classifying a
 # poissoness mushroom as edible than classifying an edible mushroom as 
 # poisonness
-penalty.matrix <- matrix(c(0,1,10,0), byrow=TRUE, nrow=2)
+#penalty.matrix <- matrix(c(0,1,10,0), byrow=TRUE, nrow=2)
 # building the classification tree with rpart
-tree <- rpart(class~.,
+tree <- rpart(yearlyincome~.,
               data=mushrooms_train,
-              parms = list(loss = penalty.matrix),
+              #parms = list(loss = penalty.matrix),
               method = "class")
 
 ## Prunning the tree using the best complexity parameter
 
 # choosing the best complexity parameter "cp" to prune the tree
-cp.optim <- tree$cptable[which.min(tree$cptable[,"xerror"]),"CP"]
+#cp.optim <- tree$cptable[which.min(tree$cptable[,"xerror"]),"CP"]
 # tree prunning using the best complexity parameter. For more in
-tree <- prune(tree, cp=cp.optim)
+#tree <- prune(tree, cp=cp.optim)
 
 ## Visualizing the final tree
 
@@ -71,6 +73,6 @@ prp(tree,faclen = 0, cex = 0.8, extra = 1)
 
 ## Predictions on test set
 
-pred <- predict(object=tree,mushrooms_test[-1],type="class")
-t <- table(mushrooms_test$class,pred)
+pred <- predict(object=tree,mushrooms_test,type="class")
+t <- table(mushrooms_test$yearlyincome,pred)
 confusionMatrix(t)

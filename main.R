@@ -32,7 +32,7 @@ if(alg == "DecisionTree")
 
 for(i in 1:nrow(mushrooms_test)) {
   row <- mushrooms_test[i,]
-  local <- localClassification(row, mushrooms_train, 2000, algorithm = "NaiveBayes", classIndex = ncol(data))
+  local <- localClassification(row, mushrooms_train, 2000, algorithm = alg, classIndex = ncol(data))
   if(alg == "DecisionTree")
   {
     pred = unlist(list(pred,local))

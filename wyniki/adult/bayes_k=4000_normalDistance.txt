@@ -1,0 +1,60 @@
+Time difference of 1.042903 hours
+> 
+> tLocal <- table(data_test$class,predLocal)
+> tGlobal <- table(data_test$class,predGlobal)
+> confusionMatrix(tLocal)
+Confusion Matrix and Statistics
+
+       predLocal
+        <=50K >50K
+  <=50K   351   19
+  >50K     80   38
+                                          
+               Accuracy : 0.7971          
+                 95% CI : (0.7587, 0.8319)
+    No Information Rate : 0.8832          
+    P-Value [Acc > NIR] : 1               
+                                          
+                  Kappa : 0.3285          
+                                          
+ Mcnemar's Test P-Value : 1.637e-09       
+                                          
+            Sensitivity : 0.8144          
+            Specificity : 0.6667          
+         Pos Pred Value : 0.9486          
+         Neg Pred Value : 0.3220          
+             Prevalence : 0.8832          
+         Detection Rate : 0.7193          
+   Detection Prevalence : 0.7582          
+      Balanced Accuracy : 0.7405          
+                                          
+       'Positive' Class : <=50K           
+                                          
+> confusionMatrix(tGlobal)
+Confusion Matrix and Statistics
+
+       predGlobal
+        <=50K >50K
+  <=50K   337   33
+  >50K     61   57
+                                          
+               Accuracy : 0.8074          
+                 95% CI : (0.7695, 0.8414)
+    No Information Rate : 0.8156          
+    P-Value [Acc > NIR] : 0.703351        
+                                          
+                  Kappa : 0.4285          
+                                          
+ Mcnemar's Test P-Value : 0.005355        
+                                          
+            Sensitivity : 0.8467          
+            Specificity : 0.6333          
+         Pos Pred Value : 0.9108          
+         Neg Pred Value : 0.4831          
+             Prevalence : 0.8156          
+         Detection Rate : 0.6906          
+   Detection Prevalence : 0.7582          
+      Balanced Accuracy : 0.7400          
+                                          
+       'Positive' Class : <=50K           
+                                          

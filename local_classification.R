@@ -17,6 +17,7 @@ getNearestNeighbours<-function(data, example, k, classIndex = 1){
   
   sorted = sort(distVector, decreasing = FALSE, index.return = TRUE)
   indexes = sorted$ix
+  View(indexes)
   indexes = indexes[1:k]
   data[indexes,]
 }

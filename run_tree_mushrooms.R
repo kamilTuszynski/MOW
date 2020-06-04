@@ -10,7 +10,7 @@ data = read.csv("mushrooms.csv")
 
 set.seed(12345) # for reproducibility
 
-train <- sample(1:nrow(data),size = ceiling(0.999*nrow(data)),replace = FALSE)
+train <- sample(1:nrow(data),size = ceiling(0.85*nrow(data)),replace = FALSE)
 data_train <- data[train,]
 data_test <- data[-train,]
 
@@ -24,7 +24,7 @@ control = rpart.control()
 
 for(i in 1:nrow(data_test)) {
   row <- data_test[i,]
-  local <- localClassification(row, data_train, 2000, algorithm = "DecisionTree", controlTree = control)
+  local <- localClassification(row, data_train, 500, algorithm = "DecisionTree", controlTree = control)
   
   predLocal = unlist(list(predLocal,local))
   

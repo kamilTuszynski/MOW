@@ -1,0 +1,59 @@
+Time difference of 43.94617 mins
+> 
+> tLocal <- table(data_test$class,predLocal)
+> tGlobal <- table(data_test$class,predGlobal)
+> confusionMatrix(tLocal)
+Confusion Matrix and Statistics
+
+   predLocal
+      e   p
+  e 620   0
+  p   2 596
+                                          
+               Accuracy : 0.9984          
+                 95% CI : (0.9941, 0.9998)
+    No Information Rate : 0.5107          
+    P-Value [Acc > NIR] : <2e-16          
+                                          
+                  Kappa : 0.9967          
+                                          
+ Mcnemar's Test P-Value : 0.4795          
+                                          
+            Sensitivity : 0.9968          
+            Specificity : 1.0000          
+         Pos Pred Value : 1.0000          
+         Neg Pred Value : 0.9967          
+             Prevalence : 0.5107          
+         Detection Rate : 0.5090          
+   Detection Prevalence : 0.5090          
+      Balanced Accuracy : 0.9984          
+                                          
+       'Positive' Class : e               
+                                          
+> confusionMatrix(tGlobal)
+Confusion Matrix and Statistics
+
+   predGlobal
+      e   p
+  e 620   0
+  p   7 591
+                                          
+               Accuracy : 0.9943          
+                 95% CI : (0.9882, 0.9977)
+    No Information Rate : 0.5148          
+    P-Value [Acc > NIR] : < 2e-16         
+                                          
+                  Kappa : 0.9885          
+                                          
+ Mcnemar's Test P-Value : 0.02334         
+                                          
+            Sensitivity : 0.9888          
+            Specificity : 1.0000          
+         Pos Pred Value : 1.0000          
+         Neg Pred Value : 0.9883          
+             Prevalence : 0.5148          
+         Detection Rate : 0.5090          
+   Detection Prevalence : 0.5090          
+      Balanced Accuracy : 0.9944          
+                                          
+       'Positive' Class : e               

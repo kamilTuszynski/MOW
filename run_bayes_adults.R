@@ -9,7 +9,7 @@ data = read.csv("adult_fixed.csv")
 
 set.seed(12345) # for reproducibility
 
-train <- sample(1:nrow(data),size = ceiling(0.999*nrow(data)),replace = FALSE)
+train <- sample(1:nrow(data),size = ceiling(0.985*nrow(data)),replace = FALSE)
 data_train <- data[train,]
 data_test <- data[-train,]
 

@@ -59,7 +59,7 @@ calculateDistanceNumeric <- function(a, b, max, min){
 }
 
 
-localClassification<-function(example, trainData, k, classIndex = 1, algorithm = "DecisionTree"){
+localClassification<-function(example, trainData, k, classIndex = 1, algorithm = "DecisionTree", controlTree = rpart.control()){
   
   nn = getNearestNeighbours(trainData, example, k, classIndex)
   
@@ -68,6 +68,7 @@ localClassification<-function(example, trainData, k, classIndex = 1, algorithm =
     # building the classification tree with rpart
     tree <- rpart(class~.,
                   data=nn,
+                  control = controlTree,
                   #parms = list(loss = penalty.matrix),
                   method = "class")
     predict(object=tree,example,type="class")

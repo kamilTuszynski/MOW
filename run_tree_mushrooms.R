@@ -19,9 +19,12 @@ start.time <- Sys.time()
 
 predLocal <- factor()
 
+# for test minsplit and maxdepth
+control = rpart.control()
+
 for(i in 1:nrow(data_test)) {
   row <- data_test[i,]
-  local <- localClassification(row, data_train, 2000, algorithm = "DecisionTree")
+  local <- localClassification(row, data_train, 2000, algorithm = "DecisionTree", controlTree = control)
   
   predLocal = unlist(list(predLocal,local))
   
@@ -30,6 +33,7 @@ for(i in 1:nrow(data_test)) {
 
 tree <- rpart(class~.,
               data=data_train,
+              control = control,
               method = "class")
 predGlobal <- predict(object=tree,data_test,type="class")
 

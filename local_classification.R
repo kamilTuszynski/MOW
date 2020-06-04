@@ -3,9 +3,9 @@ getData<-function(){
 }
 
 
-
+# function that returns k nearest neighbours for example among the data
 getNearestNeighbours<-function(data, example, k, classIndex = 1){
-  # first column is class
+  
   dataWithoutClass = data[,-classIndex]
   exampleWithoutClass = example[-classIndex]
   
@@ -21,9 +21,10 @@ getNearestNeighbours<-function(data, example, k, classIndex = 1){
   data[indexes,]
 }
 
-
+# function that returns max value for each column
 colMax <- function(data) sapply(data, getMaxIfNumeric)
 
+# function that returns min value for each column
 colMin <- function(data) sapply(data, getMinIfNumeric)
 
 getMaxIfNumeric <- function(data){
@@ -73,19 +74,19 @@ localClassification<-function(example, trainData, k, classIndex = 1, algorithm =
   }
   else if(algorithm == "NaiveBayes")
   {
-    nb.Model         <- naiveBayes( yearlyincome~., data = nn )
+    nb.Model         <- naiveBayes( class~., data = nn )
     nb.Prediction    <- predict( nb.Model, newdata = example, type = "raw" )
   }
 }
 
-
-data = getData()
-example = data[1:1,]
-data = data[-1,]
-
-start.time <- Sys.time()
-getNearestNeighbours(data, example, 2000)
-end.time <- Sys.time()
-
-time.taken <- end.time - start.time
-time.taken
+# TODO: usun przed wyslaniem projektu
+# data = getData()
+# example = data[1:1,]
+# data = data[-1,]
+# 
+# start.time <- Sys.time()
+# getNearestNeighbours(data, example, 2000)
+# end.time <- Sys.time()
+# 
+# time.taken <- end.time - start.time
+# time.taken

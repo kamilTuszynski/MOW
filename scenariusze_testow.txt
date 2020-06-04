@@ -1,0 +1,10 @@
+1. Liczba przykladow do stworzenia zbioru najblizszych sasiadow - parametr k
+2. Miara odleglosci miedzy atrybutami ciaglymi (teraz jest dosc neutralna)
+	a. wieksze odleglosci dla atrybutow ciaglych
+	b. mniejsze odleglosci dla atrybutow ciagle
+	c. ew. inny sposob obliczania tego - IMO raczej nie
+3. Z dokumentacji wstepnej dla drzewa:
+	a. minsplit - odpowiada minimalnej liczbie przykładów w węźle, dla której algorytm wykonuje podział
+	b. maxdepth – odpowiada maksymalnej głębokości węzła
+
+4. Cos jeszcze?

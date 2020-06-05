@@ -1,8 +1,3 @@
-getData<-function(){
-  mushrooms <- read.csv("mushrooms.csv");
-}
-
-
 # function that returns k nearest neighbours for example among the data
 getNearestNeighbours<-function(data, example, k, classIndex = 1){
   
@@ -17,7 +12,6 @@ getNearestNeighbours<-function(data, example, k, classIndex = 1){
   
   sorted = sort(distVector, decreasing = FALSE, index.return = TRUE)
   indexes = sorted$ix
-  View(indexes)
   indexes = indexes[1:k]
   data[indexes,]
 }
@@ -59,7 +53,7 @@ calculateDistanceNumeric <- function(a, b, max, min){
   }
 }
 
-
+# function that performs local classification on example with trainData, k is the number of neighbours
 localClassification<-function(example, trainData, k, classIndex = 1, algorithm = "DecisionTree", controlTree = rpart.control()){
   
   nn = getNearestNeighbours(trainData, example, k, classIndex)
@@ -80,15 +74,3 @@ localClassification<-function(example, trainData, k, classIndex = 1, algorithm =
     nb.Prediction    <- predict( nb.Model, newdata = example, type = "raw" )
   }
 }
-
-# TODO: usun przed wyslaniem projektu
-# data = getData()
-# example = data[1:1,]
-# data = data[-1,]
-# 
-# start.time <- Sys.time()
-# getNearestNeighbours(data, example, 2000)
-# end.time <- Sys.time()
-# 
-# time.taken <- end.time - start.time
-# time.taken

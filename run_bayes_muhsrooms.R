@@ -20,7 +20,7 @@ predLocal <- matrix(ncol = 2, nrow=0)
 
 for(i in 1:nrow(data_test)) {
   row <- data_test[i,]
-  local <- localClassification(row, data_train, 2000, algorithm = "NaiveBayes")
+  local <- localClassification(row, data_train, 4000, algorithm = "NaiveBayes")
   
   predLocal = rbind(predLocal, local)
   

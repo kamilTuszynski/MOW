@@ -24,7 +24,7 @@ control = rpart.control()
 
 for(i in 1:nrow(data_test)) {
   row <- data_test[i,]
-  local <- localClassification(row, data_train, 500, algorithm = "DecisionTree", controlTree = control)
+  local <- localClassification(row, data_train, 4000, algorithm = "DecisionTree", controlTree = control)
   
   predLocal = unlist(list(predLocal,local))
   
